@@ -1,7 +1,7 @@
 .vimrc
 ======
 
-my vimrc
+自用的vimrc，主要在windows下使用，未整理
 
 参考了几位大牛的vimrc
 
