@@ -1,15 +1,19 @@
+"------------------------------------------------ 自定义设置
 colorscheme desert           " 着色模式
 set guifont=inconsolata:h14  " 设置字体
+set fenc=utf-8               " 设置编码
+set encoding=utf-8           " 设置编码
+set backspace=2              " 设置退格键可用
 set tabstop=4                " 设置tab键的宽度
 set shiftwidth=4             " 换行时行间交错使用4个空格
 set ambiwidth=double         " 设置处理东亚二义性宽度字符类，例如全角字符
 set autoindent               " 自动对齐
-set backspace=2              " 设置退格键可用
 set cindent shiftwidth=4     " 自动缩进4空格
 set smartindent              " 智能自动缩进
 set ai!                      " 设置自动缩进
 set nu!                      " 显示行号
-"set showmatch               " 显示括号配对情况
+set foldmethod=syntax        " 选择代码折叠类型
+set foldlevel=100            " 禁止自动折叠
 set mouse=a                  " 启用鼠标
 set ruler                    " 右下角显示光标位置的状态行
 set ignorecase smartcase     " 忽略大小写检索
@@ -19,60 +23,37 @@ set nowrapscan               " 搜索到文件两端时不重新搜索
 set lazyredraw               " 延迟重画
 set nolinebreak              " 禁止强制折行
 set winaltkeys=no            " 为了使用alt组合快捷键，禁止通过alt键操作菜单
-"set cursorline               " 突出显示当前行
-"set cuc                      " 突出显示当前列
 set hidden                   " 允许在有未保存的修改时切换缓冲区
 set writebackup              " 设置无备份文件
-set nobackup
+set nobackup                 " 设置无备份文件
 set autochdir                " 设定文件浏览器目录为当前目录
-"set nowrap                  " 设置不自动换行
-set foldmethod=syntax        " 选择代码折叠类型
-set foldlevel=100            " 禁止自动折叠
 set laststatus=2             " 开启状态栏信息
 set cmdheight=2              " 命令行的高度，默认为1，这里设为2
-set showcmd                  
+set showcmd                  " 在屏幕最后一行显示 (部分的) 命令
 set scrolloff=3              " 光标移动到buffer的顶部和底部时保持三行差距
-set whichwrap+=b,s,[,]   " Backspace and cursor keys wrap to
+set whichwrap+=b,s,[,]       " 使指定的左右移动光标的键在行首或行尾可以移到前一行或者后一行
 set novisualbell             " 设置无响铃
-"set list                     " 显示Tab符，使用一高亮竖线代替
-"set listchars=tab:\|\ ,
+set fileencodings=utf-8,gbk,cp936,latin-1
 
+"------------------------------------------------ 文件类型侦测和语法高亮
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
 filetype indent on           " 针对不同的文件类型采用不同的缩进格式
 filetype plugin on           " 针对不同的文件类型加载对应的插件
 filetype plugin indent on    " 启用自动补全
 
-"normal模式下取消输入法
-autocmd! InsertLeave *	set imdisable
-autocmd! InsertEnter *	set noimdisable
+" 解决菜单乱码
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+" 解决consle输出乱码
+language messages zh_CN.utf-8
 
-function! CurDir()
-	let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
-	return curdir
-endfunction
 
-"设置 mapleader = [
-"注意，下列所有命令中的<leader>需替换为设置的符号
-let g:mapleader = "["
+"normal模式下取消输入法,会导致命令中无法输入中文,比如无法使用中文检索
+"autocmd! InsertLeave *	set imdisable
+"autocmd! InsertEnter *	set noimdisable
 
-"快速编辑vimrc
-if has("win32")
-	"Fast editing of _vimrc
-	map <leader>e :e! $VIM/_vimrc<cr>
-	"reload _vimrc
-	map <leader>s :source $VIM/_vimrc<cr>
-	"When .vimrc is edited, reload it
-	autocmd! bufwritepost vimrc source /$VIM/_vimrc
-elseif has("unix")
-	"Fast editing of .vimrc
-	map <leader>e :e! $HOME/.vimrc<cr>
-	"reload _vimrc
-	map <leader>s :source $HOME/.vimrc<cr>
-	"When .vimrc is edited, reload it
-	autocmd! bufwritepost vimrc source ~/.vimrc
-endif
-
+"------------------------------------------------ 保存文件风格优先顺序
 "文件格式
 if has("win32")
 	set ffs=dos,unix,mac
@@ -80,12 +61,25 @@ elseif has("unix")
 	set ffs=unix,dos,mac
 endif
 
-"行尾补分号
-imap ;; <ESC>$a;<ESC>
-"Ctrl-S 保存文件
-nmap <silent> <C-S> :update<CR>
-map <silent> <C-S> <ESC>:update<CR>
-vmap <silent> <C-S> <ESC>:update<CR>
+"------------------------------------------------ 自定义按键绑定
+"设置 mapleader = [ 注意，下列所有命令中的<leader>需替换为设置的符号
+let g:mapleader = "["
+
+"快速编辑vimrc
+" 快速编辑<leader>e 重新装入<leader>s
+if has("win32")
+	map <leader>e :e! $VIM/_vimrc<cr>
+	map <leader>s :source $VIM/_vimrc<cr>
+	autocmd! bufwritepost vimrc source /$VIM/_vimrc
+elseif has("unix")
+	map <leader>e :e! $HOME/.vimrc<cr>
+	map <leader>s :source $HOME/.vimrc<cr>
+	autocmd! bufwritepost vimrc source ~/.vimrc
+endif
+
+"插入模式下在行尾补分号
+imap <leader>; <ESC>$a;<ESC>
+
 "HTML转义
 nnoremap <silent> [x :.HTMLEscape<CR>
 nnoremap <silent> ]x :.HTMLUnescape<CR>
@@ -95,118 +89,24 @@ map <F2> :nohl<cr>
 map <F3> :set cursorline!<CR>
 "高亮所在列
 map <F4> :set cursorcolumn!<CR>
-"可视模式下对选中模块进行复制C-c或剪切C-x
-vmap <C-c> "+y
-vmap <C-x> "+x
-"插入模式下C-v粘贴
-"<esc>切换到命令模式，:set paste切换vim到粘贴模式，<cr>相当于回车执行set命令
-"mua<cr>设置一个标记u，然后执上行a命令在光标后插入，<C-R>+执行粘贴操作
-"inoremap <C-v> <esc>:set paste<cr>mua<C-R>+<esc>mv'uV'v=:set nopaste<cr>
-inoremap <C-v> <esc>:set paste<cr>mua<C-R>+<esc>:set nopaste<cr>
-
-"快速存储和关闭
-nmap <leader>w :w!<cr>
-nmap <leader>q :q<cr>
-nmap <leader>qq :q!<cr>
-nmap <leader>wq :wq<cr>
-
-"将当前内容在新标签中打开
-map <leader>tn :tabnew %<cr> 
-"打开空白新标签
-map <leader>te :tabedit 
-"关闭当前标签
-map <leader>tc :tabclose<cr> 
-"移动当前标签,使用方法为
-map <leader>tm :tabmove 
-"让 gvim 支持 Alt+n 来切换标签页
-autocmd VimEnter * call BufPos_Initialize()
-
-if has("gui_running")
-    au GUIEnter * simalt ~x  " 窗口启动时自动最大化
-    "winpos 20 20            " 指定窗口出现的位置，坐标原点在屏幕左上角
-    "set lines=20 columns=90 " 指定窗口大小，lines为高度，columns为宽度
-    "set guioptions-=m       " 隐藏菜单栏
-    set guioptions-=T        " 隐藏工具栏
-    "set guioptions-=L       " 隐藏左侧滚动条
-    "set guioptions-=r       " 隐藏右侧滚动条
-    "set guioptions-=b       " 隐藏底部滚动条
-    "set showtabline=0       " 隐藏Tab栏
-endif
-
-
-" 每行超过80个的字符用下划线标示
-au BufRead,BufNewFile *.asm,*.c,*.cpp,*.java,*.cs,*.sh,*.lua,*.pl,*.pm,*.py,*.rb,*.erb,*.hs,*.vim 2match Underlined /.\%81v/
-
-
-" 设置编码
-set fenc=utf-8
-set encoding=utf-8
-set fileencodings=utf-8,gbk,cp936,latin-1
-" 解决菜单乱码
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-" 解决consle输出乱码
-language messages zh_CN.utf-8
-
-
-" For Haskell
-:let hs_highlight_delimiters=1            " 高亮定界符
-:let hs_highlight_boolean=1               " 把True和False识别为关键字
-:let hs_highlight_types=1                 " 把基本类型的名字识别为关键字
-:let hs_highlight_more_types=1            " 把更多常用类型识别为关键字
-:let hs_highlight_debug=1                 " 高亮调试函数的名字
-:let hs_allow_hash_operator=1             " 阻止把#高亮为错误
-
-
-" ======= 引号 && 括号自动匹配 ======= " 
-:inoremap ( ()<ESC>i
-
-:inoremap ) <c-r>=ClosePair(')')<CR>
-
-:inoremap { {}<ESC>i
-
-:inoremap } <c-r>=ClosePair('}')<CR>
-
-:inoremap [ []<ESC>i
-
-:inoremap ] <c-r>=ClosePair(']')<CR>
-
-":inoremap < <><ESC>i
-
-":inoremap > <c-r>=ClosePair('>')<CR>
-
-:inoremap " ""<ESC>i
-
-:inoremap ' ''<ESC>i
-
-:inoremap ` ``<ESC>i
-
-":nmap qq <ESC>yypk^i//<ESC>jf"lct"
-":nmap qq yi<$a<td>&lt;<ESC>p$a&gt;</td><ESC>
-":nmap qq yypk^i//<ESC>j^2f"ci"
-
-function ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
-		return "\<Right>"
-	else
-		return a:char
-	endif
-endf
-
-"==============================================================================
-" moving around
-"==============================================================================
 "切换窗口
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 "nomal模式下tab来切换窗口
-"nmap <tab> <C-W>w
-",v 打开水平窗口
+nmap <tab> <C-W>w
+"<leader>v 打开水平窗口
 map <leader>v :vsplit<cr>
 
+"------------------------------------------------ 标签操作
+"让 gvim 支持 Alt+n 来切换标签页
+autocmd VimEnter * call BufPos_Initialize()
 
+"------------------------------------------------ 每行超过80个的字符用下划线标示
+au BufRead,BufNewFile *.asm,*.c,*.cpp,*.java,*.cs,*.sh,*.lua,*.pl,*.pm,*.py,*.rb,*.erb,*.hs,*.vim 2match Underlined /.\%81v/
+
+"------------------------------------------------ 插件设置
 " MiniBufExplorer     多个文件切换 可使用鼠标双击相应文件名进行切换
 let g:miniBufExplMapWindowNavVim=1
 let g:miniBufExplMapWindowNavArrows=1
@@ -226,7 +126,11 @@ au BufRead,BufNewFile *.txt setlocal ft=txt
 let g:fencview_autodetect=1
 
 " :LoadTemplate       根据文件后缀自动加载模板
-let g:template_path='D:\Program Files\Vim\vimfiles\template\'
+if has("win32")
+    let g:template_path='D:\Program Files\Vim\vimfiles\template\'
+elseif has("unix")
+    let g:template_path='D:\Program Files\Vim\vimfiles\template\'
+endif
 
 " :AuthorInfoDetect   自动添加作者、时间等信息，本质是NERD_commenter && authorinfo的结合
 let g:vimrc_author='codepiano'
