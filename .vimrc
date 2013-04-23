@@ -40,7 +40,7 @@ set fileencodings=utf-8,gbk,cp936,latin-1
 "加载pathogen插件
 "非.vim目录的加载方法请参考pathogen的github readme
 runtime bundle/vim-pathogen.git/autoload/pathogen.vim
-execute pathogen#infect()    " pathogen插件设置
+execute pathogen#infect()
 
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
@@ -89,10 +89,10 @@ map <F3> :set cursorline!<CR>
 "高亮所在列
 map <F4> :set cursorcolumn!<CR>
 "切换窗口
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <leader>j <C-W>j
+map <leader>k <C-W>k
+map <leader>h <C-W>h
+map <leader>l <C-W>l
 "nomal模式下tab来切换窗口
 nmap <tab> <C-W>w
 "<leader>v 打开水平窗口
@@ -108,56 +108,66 @@ au BufRead,BufNewFile *.asm,*.c,*.cpp,*.java,*.cs,*.sh,*.lua,*.pl,*.pm,*.py,*.rb
 "------------------------------------------------ 插件设置
 " Tagbar              按键绑定和设置
 nmap <silent> <F8> :TagbarToggle<CR>
-let g:tagbar_ctags_bin = ''                       " ctags执行文件位置  
-let g:tagbar_left = 0                             " tagbar窗口显示在左边
-let g:tagbar_width = 40                           " tagbar窗口宽度
-let g:tagbar_autoclose = 0                        " 跳转后自动关闭tagbar窗口
-let g:tagbar_autofocus = 0                        " tagbar窗口打开后自动获得焦点
-let g:tagbar_sort = 1                             " tags排序
-let g:tagbar_compact = 0                          " 紧凑结构，例如不显示空行
-let g:tagbar_indent = 2                           " 缩进的宽度，默认为2
-let g:tagbar_show_visibility = 1                  " 显示方法可视化关键字
-let g:tagbar_expand = 0                           " 如果使用GUI版本VIM，对窗口进行扩展
-let g:tagbar_singleclick = 0                      " 使用单击代替双击进行tag跳转
-let g:tagbar_foldlevel = 99                       " 菜单折叠层级，大于该层级数的会被折叠
-let g:tagbar_iconchars = ['▶', '▼']             " Linux and Mac OS X默认折叠图标
-let g:tagbar_autoshowtag = 0                      " tag所在菜单被折叠时的行为，参见文档
-let g:tagbar_systemenc = 'cp936'                  " 解决编码问题，参见文档
+nmap <silent> <leader>tt :TagbarToggle<CR>
+let g:tagbar_ctags_bin = ''                             " ctags执行文件位置  
+let g:tagbar_left = 0                                   " tagbar窗口显示在左边
+let g:tagbar_width = 40                                 " tagbar窗口宽度
+let g:tagbar_autoclose = 0                              " 跳转后自动关闭tagbar窗口
+let g:tagbar_autofocus = 0                              " tagbar窗口打开后自动获得焦点
+let g:tagbar_sort = 1                                   " tags排序
+let g:tagbar_compact = 0                                " 紧凑结构，例如不显示空行
+let g:tagbar_indent = 2                                 " 缩进的宽度，默认为2
+let g:tagbar_show_visibility = 1                        " 显示方法可视化关键字
+let g:tagbar_expand = 0                                 " 如果使用GUI版本VIM，对窗口进行扩展
+let g:tagbar_singleclick = 0                            " 使用单击代替双击进行tag跳转
+let g:tagbar_foldlevel = 99                             " 菜单折叠层级，大于该层级数的会被折叠
+let g:tagbar_iconchars = ['▶', '▼']                   " Linux and Mac OS X默认折叠图标
+let g:tagbar_autoshowtag = 0                            " tag所在菜单被折叠时的行为，参见文档
+let g:tagbar_systemenc = 'cp936'                        " 解决编码问题，参见文档
 
+" SuperTab            按键绑定和设置
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"      " 默认补全方式
+let g:SuperTabContextDefaultCompletionType = "<c-p>"    " 如果context补全方式返回空，使用该补全
+let g:SuperTabRetainCompletionDuration = "insert"       " 决定当前补全类型保留时间
+let g:SuperTabNoCompleteBefore = []                     " 在给定规则前不进行补全
+let g:SuperTabNoCompleteAfter = ['^', '\s']             " 在给定规则后不进行补全
+let g:SuperTabMappingForward  = "<tab>"                 " 向前的按键绑定
+let g:SuperTabMappingBackward = "<s-tab>"               " 向后的按键绑定
+let g:SuperTabMappingTabLiteral = '<c-tab>'             " 插入tab符
+let g:SuperTabLongestEnhanced = 0                       " 最长匹配增强                     
+let g:SuperTabLongestHighlight = 0                      " 高亮最长匹配，可以直接使用回车选择
+let g:SuperTabCrMapping = 1                             " 使用<cr>结束补全
 
-let g:miniBufExplMapWindowNavVim=1
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
+" Nerd_commenter      按键绑定和设置
+let g:loaded_nerd_comments = 0                          " 禁用此脚本
+let g:NERDAllowAnyVisualDelims = 1                      " 允许在可视/可视行模式使用多块注释符
+let g:NERDBlockComIgnoreEmpty = 1                       " 强制可视块添加正确注释符
+let g:NERDCommentWholeLinesInVMode = 0                  " 改变可视注释时的方法
+let g:NERDCreateDefaultMappings = 1                     " 启用/禁用 默认键映射
+let g:NERDDefaultNesting = 1                            " 启用默认嵌套注释
+let g:NERDMenuMode = 0                                  " 指定 NERD commenter 菜单显示的方式
+let g:NERDLPlace = "[>"                                 " 嵌套注释时，指定placeholder左侧的分隔符。
+let g:NERDRPlace = ">]"                                 " 嵌套注释时，指定placeholder右侧的分隔符。
+let g:NERDUsePlaceHolders = 1                           " 当嵌套注释时,指定那种文件类型可以使用 placeholders 的注释分隔符
+let g:NERDRemoveAltComs = 1                             " 告诉脚本是否在取消注释时移除可选的注释分隔符
+let g:NERDRemoveExtraSpaces = 1                         " 取消注释时总清除多余的空格
+let g:NERDSpaceDelims = 1                               " 当注释时是否在注释符周围添加空格,取消注释时是否删除这些空格
+let g:NERDCompactSexyComs = 1                           " 指定是否使用简洁风格 sexy 注释
+let g:NERDCustomDelimiters = {}                         " 自定义分割符
 
-" :Tlist              调用TagList
-let Tlist_Show_One_File=1                    " 只显示当前文件的tags
-let Tlist_Exit_OnlyWindow=1                  " 如果Taglist窗口是最后一个窗口则退出Vim
-let Tlist_Use_Right_Window=1                 " 在右侧窗口中显示
-let Tlist_File_Fold_Auto_Close=0             " 自动折叠
+" AuthorInfo                自动添加作者、时间等信息，依赖NERD_commenter
+nmap <silent> <leader>ai :AuthorInfoDetect<cr>
+let g:vimrc_author = 'codepiano'
+let g:vimrc_email = 'codepiano@gmail.com'
+let g:vimrc_homepage = 'http://www.weibo.com/anyexingchen'
 
-" TxtBrowser          高亮TXT文本文件
-au BufRead,BufNewFile *.txt setlocal ft=txt
-
-" :FencView           查看文件编码和更改文件编码
-let g:fencview_autodetect=1
-
-" :LoadTemplate       根据文件后缀自动加载模板
-if has("win32")
-    let g:template_path='D:\Program Files\Vim\vimfiles\template\'
-elseif has("unix")
-    let g:template_path='D:\Program Files\Vim\vimfiles\template\'
-endif
-
-" :AuthorInfoDetect   自动添加作者、时间等信息，本质是NERD_commenter && authorinfo的结合
-let g:vimrc_author='codepiano'
-let g:vimrc_email='codepiano@gmail.com'
-let g:vimrc_homepage='http://pianoisy.sinaapp.com/'
-
-" Ctrl + E            一步加载语法模板和作者、时间信息 [非插入模式]
-map <c-1> <ESC>:LoadTemplate<CR><ESC>:AuthorInfoDetect<CR><ESC>Gi
-vmap <c-1> <ESC>:LoadTemplate<CR><ESC>:AuthorInfoDetect<CR><ESC>Gi
-
+" Nerd_commenter      按键绑定和设置
+let g:UltiSnipsEditSplit = 'normal'                     " 编辑窗口打开方式
+let g:UltiSnipsExpandTrigger = <c-space>                " 触发扩展
+let g:UltiSnipsListSnippets = <c-tab>                   " 列出代码段
+let g:UltiSnipsJumpForwardTrigger = <c-j>               " 跳到前一个插入点
+let g:UltiSnipsJumpBackwardTrigger = <c-k>              " 跳到后一个插入点
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snippets"]        " 自定义代码段位置，在runtimepath下搜寻
 
 " nt                  打开NERDTree [非插入模式]
 map nt :NERDTree<CR>
@@ -188,82 +198,6 @@ if filereadable("./tags")                "设置tag文件的名字
 let g:LookupFile_TagExpr = '"./tags"'
 endif
 
-" ======= 编译 && 运行 ======= "
-
-" 编译C源文件
-func! CompileGcc()
-    exec "w"
-    let compilecmd="!gcc -Wall -pedantic -std=c99 "
-    let compileflag="-o %<"
-    exec compilecmd." % ".compileflag
-endfunc
-
-" 编译C++源文件
-func! CompileCpp()
-    exec "w"
-    let compilecmd="!g++ -Wall -pedantic -std=c++98 "
-    let compileflag="-o %<"
-    exec compilecmd." % ".compileflag
-endfunc
-
-" 编译Java源文件
-func! CompileJava()
-	exec "w"
-    exec "!javac %"
-endfunc
-
-" 编译Haskell源文件
-func! CompileHaskell()
-	exec "w"
-	let compilecmd="!ghc --make "
-	let compileflag="-o %<"
-	exec compilecmd." % ".compileflag
-endfunc
-
-" 根据文件类型自动选择相应的编译函数
-func! CompileCode()
-        exec "w"
-        if &filetype == "c"
-			exec "call CompileGcc()"
-        elseif &filetype == "cpp"
-			exec "call CompileCpp()"
-		elseif &filetype == "java"
-			exec "call CompileJava()"
-		elseif &filetype == "haskell"
-			exec "call CompileHaskell()"
-		elseif &filetype == "lua"
-			exec "!lua %<.lua"
-		elseif &filetype == "perl"
-			exec "!perl %<.pl"
-        elseif &filetype == "python"
-			exec "!python %<.py"
-		elseif &filetype == "ruby"
-			exec "!ruby %<.rb"
-        endif
-endfunc
-
-" 运行可执行文件
-func! RunResult()
-        exec "w"
-        if &filetype == "c"
-			exec "! %<"
-        elseif &filetype == "cpp"
-			exec "! %<"
-		elseif &filetype == "java"
-			exec "!java %<"
-		elseif &filetype == "haskell"
-			exec "! %<"
-		elseif &filetype == "lua"
-			exec "!lua %<.lua"
-		elseif &filetype == "perl"
-			exec "!perl %<.pl"
-        elseif &filetype == "python"
-			exec "!python %<.py"
-		elseif &filetype == "ruby"
-			exec "!ruby %<.rb"
-        endif
-endfunc
-
 "用A-Num来切换标签
 function! BufPos_ActivateBuffer(num)
 	let l:count = 1
@@ -293,4 +227,3 @@ let g:html_no_foldcolumn = 1
 let g:html_use_xhtml = 1
 "let g:tagbar_autofocus = 1                        " tagbar窗口
 "
-
