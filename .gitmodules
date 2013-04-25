@@ -10,9 +10,6 @@
 [submodule ".vim/bundle/nerdcommenter.git"]
 	path = .vim/bundle/nerdcommenter.git
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/authorinfo.git"]
-	path = .vim/bundle/authorinfo.git
-	url = https://github.com/vim-scripts/AuthorInfo.git
 [submodule ".vim/bundle/ultisnips.git"]
 	path = .vim/bundle/ultisnips.git
 	url = https://github.com/SirVer/ultisnips.git

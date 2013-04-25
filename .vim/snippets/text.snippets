@@ -1,0 +1,6 @@
+# 单词第一个字母大写
+# uppercase the first letter of the words in the sentence
+snippet title "Titlelize in the Transformation"
+${1:a text}
+${1/\w+\s*/\u$0/g}
+endsnippet
