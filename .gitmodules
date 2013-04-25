@@ -13,3 +13,12 @@
 [submodule ".vim/bundle/ultisnips.git"]
 	path = .vim/bundle/ultisnips.git
 	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/bundle/authorinfo.git"]
+	path = .vim/bundle/authorinfo.git
+	url = https://github.com/iyf/AuthorInfo.git
+[submodule ".vim/bundle/vim-colors-solarized.git"]
+	path = .vim/bundle/vim-colors-solarized.git
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/vim-css-color.git"]
+	path = .vim/bundle/vim-css-color.git
+	url = https://github.com/ap/vim-css-color.git

@@ -25,3 +25,6 @@ majutsushi|tagbar|https://github.com/majutsushi/tagbar|浏览源码文件的tags
 ervandew|supertab|https://github.com/ervandew/supertab|使用tab进行提示功能
 scrooloose|nerdcommenter|https://github.com/scrooloose/nerdcommenter|便捷注释
 SirVer|ultisnips|https://github.com/SirVer/ultisnips|生成代码段
+iyf|AuthorInfo|https://github.com/iyf/AuthorInfo.git|插入作者信息
+altercation|vim-colors-solarized|https://github.com/altercation/vim-colors-solarized.git|颜色主题
+ap|vim-css-color|https://github.com/ap/vim-css-color|css代码色彩着色

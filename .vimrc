@@ -1,5 +1,29 @@
+"------------------------------------------------ 文件类型侦测和语法高亮
+"加载pathogen插件
+"非.vim目录的加载方法请参考pathogen的github readme
+runtime bundle/vim-pathogen.git/autoload/pathogen.vim
+execute pathogen#infect()
+
+syntax enable                " 打开语法高亮
+syntax on                    " 开启文件类型侦测
+filetype indent on           " 针对不同的文件类型采用不同的缩进格式
+filetype plugin on           " 针对不同的文件类型加载对应的插件
+filetype plugin indent on    " 启用自动补全
+colorscheme solarized        " 着色模式
+
+" 解决菜单乱码
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+" 解决consle输出乱码
+language messages zh_CN.utf-8
+
+
+"normal模式下取消输入法,会导致命令中无法输入中文,比如无法使用中文检索
+"autocmd! InsertLeave *	set imdisable
+"autocmd! InsertEnter *	set noimdisable
+
 "------------------------------------------------ 自定义设置
-colorscheme desert           " 着色模式
+set background=dark
 set fileformats=unix,dos     " 文件格式
 set nocompatible             " 禁止模仿vi
 set fenc=utf-8               " 设置编码
@@ -36,29 +60,6 @@ set whichwrap+=b,s,[,]       " 使指定的左右移动光标的键在行首或�
 set novisualbell             " 设置无响铃
 set fileencodings=utf-8,gbk,cp936,latin-1
 
-"------------------------------------------------ 文件类型侦测和语法高亮
-"加载pathogen插件
-"非.vim目录的加载方法请参考pathogen的github readme
-runtime bundle/vim-pathogen.git/autoload/pathogen.vim
-execute pathogen#infect()
-
-syntax enable                " 打开语法高亮
-syntax on                    " 开启文件类型侦测
-filetype indent on           " 针对不同的文件类型采用不同的缩进格式
-filetype plugin on           " 针对不同的文件类型加载对应的插件
-filetype plugin indent on    " 启用自动补全
-
-" 解决菜单乱码
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-" 解决consle输出乱码
-language messages zh_CN.utf-8
-
-
-"normal模式下取消输入法,会导致命令中无法输入中文,比如无法使用中文检索
-"autocmd! InsertLeave *	set imdisable
-"autocmd! InsertEnter *	set noimdisable
-
 "------------------------------------------------ 自定义按键绑定
 "设置 mapleader = [ 
 "注意，下列所有命令中的<leader>需替换为设置的符号
@@ -89,10 +90,12 @@ map <F3> :set cursorline!<CR>
 "高亮所在列
 map <F4> :set cursorcolumn!<CR>
 "切换窗口
-map <leader>j <C-W>j
-map <leader>k <C-W>k
-map <leader>h <C-W>h
-map <leader>l <C-W>l
+map <A-j> <C-W>j
+map <A-k> <C-W>k
+map <A-h> <C-W>h
+map <C-h> <C-W>h
+map <A-l> <C-W>l
+map <C-l> <C-W>l
 "nomal模式下tab来切换窗口
 nmap <tab> <C-W>w
 "<leader>v 打开水平窗口
@@ -109,65 +112,77 @@ au BufRead,BufNewFile *.asm,*.c,*.cpp,*.java,*.cs,*.sh,*.lua,*.pl,*.pm,*.py,*.rb
 " Tagbar              按键绑定和设置
 nmap <silent> <F8> :TagbarToggle<CR>
 nmap <silent> <leader>tt :TagbarToggle<CR>
-let g:tagbar_ctags_bin = ''                             " ctags执行文件位置  
-let g:tagbar_left = 0                                   " tagbar窗口显示在左边
-let g:tagbar_width = 40                                 " tagbar窗口宽度
-let g:tagbar_autoclose = 0                              " 跳转后自动关闭tagbar窗口
-let g:tagbar_autofocus = 0                              " tagbar窗口打开后自动获得焦点
-let g:tagbar_sort = 1                                   " tags排序
-let g:tagbar_compact = 0                                " 紧凑结构，例如不显示空行
-let g:tagbar_indent = 2                                 " 缩进的宽度，默认为2
-let g:tagbar_show_visibility = 1                        " 显示方法可视化关键字
-let g:tagbar_expand = 0                                 " 如果使用GUI版本VIM，对窗口进行扩展
-let g:tagbar_singleclick = 0                            " 使用单击代替双击进行tag跳转
-let g:tagbar_foldlevel = 99                             " 菜单折叠层级，大于该层级数的会被折叠
-let g:tagbar_iconchars = ['▶', '▼']                   " Linux and Mac OS X默认折叠图标
-let g:tagbar_autoshowtag = 0                            " tag所在菜单被折叠时的行为，参见文档
-let g:tagbar_systemenc = 'cp936'                        " 解决编码问题，参见文档
+let g:tagbar_left = 0                                             " tagbar窗口显示在左边
+let g:tagbar_width = 40                                           " tagbar窗口宽度
+let g:tagbar_autoclose = 0                                        " 跳转后自动关闭tagbar窗口
+let g:tagbar_autofocus = 0                                        " tagbar窗口打开后自动获得焦点
+let g:tagbar_sort = 1                                             " tags排序
+let g:tagbar_compact = 0                                          " 紧凑结构，例如不显示空行
+let g:tagbar_indent = 2                                           " 缩进的宽度，默认为2
+let g:tagbar_show_visibility = 1                                  " 显示方法可视化关键字
+let g:tagbar_expand = 0                                           " 如果使用GUI版本VIM，对窗口进行扩展
+let g:tagbar_singleclick = 0                                      " 使用单击代替双击进行tag跳转
+let g:tagbar_foldlevel = 99                                       " 菜单折叠层级，大于该层级数的会被折叠
+let g:tagbar_iconchars = ['▶', '▼']                             " Linux and Mac OS X默认折叠图标
+let g:tagbar_autoshowtag = 0                                      " tag所在菜单被折叠时的行为，参见文档
+let g:tagbar_systemenc = 'cp936'                                  " 解决编码问题，参见文档
 
 " SuperTab            按键绑定和设置
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"      " 默认补全方式
-let g:SuperTabContextDefaultCompletionType = "<c-p>"    " 如果context补全方式返回空，使用该补全
-let g:SuperTabRetainCompletionDuration = "insert"       " 决定当前补全类型保留时间
-let g:SuperTabNoCompleteBefore = []                     " 在给定规则前不进行补全
-let g:SuperTabNoCompleteAfter = ['^', '\s']             " 在给定规则后不进行补全
-let g:SuperTabMappingForward  = "<tab>"                 " 向前的按键绑定
-let g:SuperTabMappingBackward = "<s-tab>"               " 向后的按键绑定
-let g:SuperTabMappingTabLiteral = '<c-tab>'             " 插入tab符
-let g:SuperTabLongestEnhanced = 0                       " 最长匹配增强                     
-let g:SuperTabLongestHighlight = 0                      " 高亮最长匹配，可以直接使用回车选择
-let g:SuperTabCrMapping = 1                             " 使用<cr>结束补全
+let g:SuperTabDefaultCompletionType = "context"                   " 默认补全方式
+let g:SuperTabContextDefaultCompletionType = "<c-p>"              " 如果context补全方式返回空，使用该补全
+let g:SuperTabRetainCompletionDuration = "insert"                 " 决定当前补全类型保留时间
+let g:SuperTabNoCompleteBefore = []                               " 在给定规则前不进行补全
+let g:SuperTabNoCompleteAfter = ['^', '\s']                       " 在给定规则后不进行补全
+let g:SuperTabMappingForward  = "<tab>"                           " 向前的按键绑定
+let g:SuperTabMappingBackward = "<s-tab>"                         " 向后的按键绑定
+let g:SuperTabMappingTabLiteral = '<c-tab>'                       " 插入tab符
+let g:SuperTabLongestEnhanced = 0                                 " 最长匹配增强                     
+let g:SuperTabLongestHighlight = 0                                " 高亮最长匹配，可以直接使用回车选择
+let g:SuperTabCrMapping = 1                                       " 使用<cr>结束补全
 
 " Nerd_commenter      按键绑定和设置
-let g:loaded_nerd_comments = 0                          " 禁用此脚本
-let g:NERDAllowAnyVisualDelims = 1                      " 允许在可视/可视行模式使用多块注释符
-let g:NERDBlockComIgnoreEmpty = 1                       " 强制可视块添加正确注释符
-let g:NERDCommentWholeLinesInVMode = 0                  " 改变可视注释时的方法
-let g:NERDCreateDefaultMappings = 1                     " 启用/禁用 默认键映射
-let g:NERDDefaultNesting = 1                            " 启用默认嵌套注释
-let g:NERDMenuMode = 0                                  " 指定 NERD commenter 菜单显示的方式
-let g:NERDLPlace = "[>"                                 " 嵌套注释时，指定placeholder左侧的分隔符。
-let g:NERDRPlace = ">]"                                 " 嵌套注释时，指定placeholder右侧的分隔符。
-let g:NERDUsePlaceHolders = 1                           " 当嵌套注释时,指定那种文件类型可以使用 placeholders 的注释分隔符
-let g:NERDRemoveAltComs = 1                             " 告诉脚本是否在取消注释时移除可选的注释分隔符
-let g:NERDRemoveExtraSpaces = 1                         " 取消注释时总清除多余的空格
-let g:NERDSpaceDelims = 1                               " 当注释时是否在注释符周围添加空格,取消注释时是否删除这些空格
-let g:NERDCompactSexyComs = 1                           " 指定是否使用简洁风格 sexy 注释
-let g:NERDCustomDelimiters = {}                         " 自定义分割符
+let loaded_nerd_comments = 1                                      " 是否启用插件
+let g:NERDAllowAnyVisualDelims = 1                                " 允许在可视/可视行模式使用多块注释符
+let g:NERDBlockComIgnoreEmpty = 1                                 " 强制可视块添加正确注释符
+let g:NERDCommentWholeLinesInVMode = 0                            " 改变可视注释时的方法
+let g:NERDCreateDefaultMappings = 1                               " 启用/禁用 默认键映射
+let g:NERDDefaultNesting = 1                                      " 启用默认嵌套注释
+let g:NERDMenuMode = 0                                            " 指定 NERD commenter 菜单显示的方式
+let g:NERDLPlace = "[>"                                           " 嵌套注释时，指定placeholder左侧的分隔符。
+let g:NERDRPlace = ">]"                                           " 嵌套注释时，指定placeholder右侧的分隔符。
+let g:NERDUsePlaceHolders = 1                                     " 当嵌套注释时,指定那种文件类型可以使用 placeholders 的注释分隔符
+let g:NERDRemoveAltComs = 1                                       " 告诉脚本是否在取消注释时移除可选的注释分隔符
+let g:NERDRemoveExtraSpaces = 1                                   " 取消注释时总清除多余的空格
+let g:NERDSpaceDelims = 1                                         " 当注释时是否在注释符周围添加空格,取消注释时是否删除这些空格
+let g:NERDCompactSexyComs = 1                                     " 指定是否使用简洁风格 sexy 注释
 
-" AuthorInfo                自动添加作者、时间等信息，依赖NERD_commenter
+" AuthorInfo          自动添加作者、时间等信息，依赖NERD_commenter
 nmap <silent> <leader>ai :AuthorInfoDetect<cr>
 let g:vimrc_author = 'codepiano'
 let g:vimrc_email = 'codepiano@gmail.com'
 let g:vimrc_homepage = 'http://www.weibo.com/anyexingchen'
 
-" Nerd_commenter      按键绑定和设置
-let g:UltiSnipsEditSplit = 'normal'                     " 编辑窗口打开方式
-let g:UltiSnipsExpandTrigger = <c-space>                " 触发扩展
-let g:UltiSnipsListSnippets = <c-tab>                   " 列出代码段
-let g:UltiSnipsJumpForwardTrigger = <c-j>               " 跳到前一个插入点
-let g:UltiSnipsJumpBackwardTrigger = <c-k>              " 跳到后一个插入点
-let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snippets"]        " 自定义代码段位置，在runtimepath下搜寻
+" UltiSnips           按键绑定和设置
+let g:UltiSnipsEditSplit = 'normal'                               " 编辑窗口打开方式
+let g:UltiSnipsExpandTrigger = '<c-enter>'                        " 触发扩展
+let g:UltiSnipsListSnippets = '<c-tab>'                           " 列出代码段
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'                       " 跳到前一个插入点
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'                      " 跳到后一个插入点
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snippets"]     " 自定义代码段位置，在runtimepath下搜寻
+
+" solarized           颜色主题设置
+let g:solarized_menu=0                                            " 是否在菜单上显示快捷按钮
+let g:solarized_termtrans=0                                       " 终端模式中是否使用默认背景设置
+let g:solarized_bold=1                                            " 使用粗体
+let g:solarized_underline=1                                       " 使用下划线
+let g:solarized_italic=1                                          " 使用斜体
+let g:solarized_termcolors=256                                    " vim終端模式使用256色
+let g:solarized_contrast="normal"                                 " 对比度等级
+let g:solarized_visibility="normal"                               " 空白字符是否可见
+let g:solarized_diffmode="normal"                                 " vim diff模式
+let g:solarized_hitrail=0                                         " listchars是否增强显示
+
+
 
 " nt                  打开NERDTree [非插入模式]
 map nt :NERDTree<CR>
