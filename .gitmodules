@@ -22,3 +22,21 @@
 [submodule ".vim/bundle/vim-css-color.git"]
 	path = .vim/bundle/vim-css-color.git
 	url = https://github.com/ap/vim-css-color.git
+[submodule ".vim/bundle/vim-endwise.git"]
+	path = .vim/bundle/vim-endwise.git
+	url = https://github.com/tpope/vim-endwise.git
+[submodule ".vim/bundle/trans.vim.git"]
+	path = .vim/bundle/trans.vim.git
+	url = https://github.com/Rykka/trans.vim.git
+[submodule ".vim/bundle/vim-easymotion.git"]
+	path = .vim/bundle/vim-easymotion.git
+	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule ".vim/bundle/ctrlp.git"]
+	path = .vim/bundle/ctrlp.git
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule ".vim/bundle/vim-buffergator.git"]
+	path = .vim/bundle/vim-buffergator.git
+	url = https://github.com/jeetsukumaran/vim-buffergator.git
+[submodule ".vim/bundle/vim-dispatch.git"]
+	path = .vim/bundle/vim-dispatch.git
+	url = https://github.com/tpope/vim-dispatch.git
