@@ -25,9 +25,6 @@
 [submodule ".vim/bundle/vim-endwise.git"]
 	path = .vim/bundle/vim-endwise.git
 	url = https://github.com/tpope/vim-endwise.git
-[submodule ".vim/bundle/trans.vim.git"]
-	path = .vim/bundle/trans.vim.git
-	url = https://github.com/Rykka/trans.vim.git
 [submodule ".vim/bundle/vim-easymotion.git"]
 	path = .vim/bundle/vim-easymotion.git
 	url = https://github.com/Lokaltog/vim-easymotion.git
@@ -40,3 +37,9 @@
 [submodule ".vim/bundle/vim-dispatch.git"]
 	path = .vim/bundle/vim-dispatch.git
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule ".vim/bundle/vim-fugitive.git"]
+	path = .vim/bundle/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-eunuch.git"]
+	path = .vim/bundle/vim-eunuch.git
+	url = https://github.com/tpope/vim-eunuch.git

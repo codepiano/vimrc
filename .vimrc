@@ -61,9 +61,9 @@ set novisualbell             " 设置无响铃
 set fileencodings=utf-8,gbk,cp936,latin-1
 
 "------------------------------------------------ 自定义按键绑定
-"设置 mapleader = [ 
+"设置 mapleader = ; 
 "注意，下列所有命令中的<leader>需替换为设置的符号
-let g:mapleader = "["
+let g:mapleader = ";"
 
 "快速编辑vimrc
 " 快速编辑<leader>e 重新装入<leader>s
@@ -98,7 +98,7 @@ map <A-l> <C-W>l
 map <C-l> <C-W>l
 "nomal模式下tab来切换窗口
 nmap <tab> <C-W>w
-"<leader>v 打开水平窗口
+"<leader>v 竖直分割窗口
 map <leader>v :vsplit<cr>
 
 "------------------------------------------------ 标签操作
@@ -171,24 +171,65 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-k>'                      " 跳到后一
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snippets"]     " 自定义代码段位置，在runtimepath下搜寻
 
 " solarized           颜色主题设置
-let g:solarized_menu=0                                            " 是否在菜单上显示快捷按钮
-let g:solarized_termtrans=0                                       " 终端模式中是否使用默认背景设置
-let g:solarized_bold=1                                            " 使用粗体
-let g:solarized_underline=1                                       " 使用下划线
-let g:solarized_italic=1                                          " 使用斜体
-let g:solarized_termcolors=256                                    " vim終端模式使用256色
-let g:solarized_contrast="normal"                                 " 对比度等级
-let g:solarized_visibility="normal"                               " 空白字符是否可见
-let g:solarized_diffmode="normal"                                 " vim diff模式
-let g:solarized_hitrail=0                                         " listchars是否增强显示
+let g:solarized_menu = 0                                          " 是否在菜单上显示快捷按钮
+let g:solarized_termtrans = 0                                     " 终端模式中是否使用默认背景设置
+let g:solarized_bold = 1                                          " 使用粗体
+let g:solarized_underline = 1                                     " 使用下划线
+let g:solarized_italic = 1                                        " 使用斜体
+let g:solarized_termcolors = 256                                  " vim終端模式使用256色
+let g:solarized_contrast = "normal"                               " 对比度等级
+let g:solarized_visibility = "normal"                             " 空白字符是否可见
+let g:solarized_diffmode = "normal"                               " vim diff模式
+let g:solarized_hitrail = 0                                       " listchars是否增强显示
+
+
+" buffergator         按键绑定和设置
+let g:buffergator_viewport_split_policy = 'L'                     " 窗口位置
+let g:buffergator_autodismiss_on_select = 1                       " 选择buffer后窗口是否关闭
+let g:buffergator_autoexpand_on_split = 1                         " GUI模式下是否自动扩展
+let g:buffergator_split_size = 40                                 " 窗口的高度或者宽度
+let g:buffergator_vsplit_size = 40                                " 竖直分割的窗口的宽度
+let g:buffergator_hplit_size = 20                                 " 水平分割的窗口的高度
+let g:buffergator_sort_regime = 'bufnum'                          " 默认的buffer排序方式
+let ffergator_display_regime = 'basename'                         " 默认的buffer显示名称
+let g:buffergator_suppress_keymaps = 0                            " 是否使用插件默认的按键绑定
+
+" ctrlp               按键绑定和设置
+let g:ctrlp_map = '<c-c>'                                         " 普通模式下调用ctrlp的快捷键
+let g:ctrlp_cmd = 'CtrlP'                                         " ctrlp快捷键调用的方法
+let g:loaded_ctrlp = 0                                            " 是否启用插件
+let g:ctrlp_by_filename = 1                                       " 按照文件名搜索
+let g:ctrlp_regexp = 1                                            " 是否开启正则表达式搜索
+let g:ctrlp_match_window_bottom = 1                               " ctrlp窗口是否在底部
+let g:ctrlp_match_window_reversed = 1                             " 排序规则
+let g:ctrlp_max_height = 20                                       " 窗口最大高度
+let g:ctrlp_switch_buffer = 'Et'                                  " 如果文件已打开，跳转
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'                " 避免在插件|帮助|quickfix中打开
+let g:ctrlp_tabpage_position = 'ac'                               " 新标签的位置
+let g:ctrlp_working_path_mode = 'ra'                              " 路径规则
+let g:ctrlp_root_markers = ['']                                   " 自定义marker
+let g:ctrlp_use_caching = 1                                       " 是否使用cache
+let g:ctrlp_clear_cache_on_exit = 1                               " 是否使用跨会话cache
+let g:ctrlp_show_hidden = 0                                       " 是否搜索隐藏文件/夹
+let g:ctrlp_max_files = 10000                                     " 搜索的最大文件数
+let g:ctrlp_max_depth = 40                                        " 遍历的文件夹最大深度
+let g:ctrlp_max_history = &history                                " 记录的最大历史数
+let g:ctrlp_open_new_file = 'v'                                   " 新建文件位置
+let g:ctrlp_open_multiple_files = 't'                             " 打开多个文件的方式 
+let g:ctrlp_arg_map = 0                                           " 使用带参数的打开方式
+let g:ctrlp_follow_symlinks = 0                                   " 是否显示符号链接
+let g:ctrlp_lazy_update = 0                                       " 是否延迟刷新
+let g:ctrlp_default_input = 0                                     " 默认输入
+
+" vim-easymotion      按键绑定和设置
+let g:EasyMotion_do_shade = 1                                     " 是否开启阴影
+let g:EasyMotion_do_mapping = 1                                   " 是否开启默认键绑定
+let g:EasyMotion_grouping = 1                                     " 分组方式
+let g:EasyMotion_leader_key = '<Leader><Leader>'                  " leader
 
 
 
-" nt                  打开NERDTree [非插入模式]
-map nt :NERDTree<CR>
 
-" tl                  打开Taglist [非插入模式]
-map tl :Tlist<CR><c-l>
 
 "删除空行
 command -range=% -bar NoLine <line1>,<line2>g/^\s*$/d_|nohls
@@ -240,5 +281,3 @@ let g:user_zen_expandabbr_key = '<c-e>'
 let g:html_no_foldcolumn = 1
 "使用该脚本产生 XHTML (XML 兼容的 HTML)
 let g:html_use_xhtml = 1
-"let g:tagbar_autofocus = 1                        " tagbar窗口
-"
