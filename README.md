@@ -35,3 +35,4 @@ tpope|vim-dispatch|https://github.com/tpope/vim-dispatch|vim编译增强
 jeetsukumaran|vim-buffergator|https://github.com/jeetsukumaran/vim-buffergator|缓冲区浏览
 tpope|vim-fugitive|https://github.com/tpope/vim-fugitive|git插件
 tpope|vim-eunuch|https://github.com/tpope/vim-eunuch|\*nix shell wrapper
+mattn|zencoding-vim|https://github.com/mattn/zencoding-vim.git|快速生成dhtml片段

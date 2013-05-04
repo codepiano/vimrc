@@ -141,7 +141,6 @@ let g:SuperTabLongestHighlight = 0                                " 高亮最长
 let g:SuperTabCrMapping = 1                                       " 使用<cr>结束补全
 
 " Nerd_commenter      按键绑定和设置
-let loaded_nerd_comments = 1                                      " 是否启用插件
 let g:NERDAllowAnyVisualDelims = 1                                " 允许在可视/可视行模式使用多块注释符
 let g:NERDBlockComIgnoreEmpty = 1                                 " 强制可视块添加正确注释符
 let g:NERDCommentWholeLinesInVMode = 0                            " 改变可视注释时的方法
@@ -274,6 +273,24 @@ function! BufPos_Initialize()
 		exe "map <M-" . i . "> " . i . "gt" 
 	endfor
 endfunction
+
+" 在vim中使用<leader>F命令查询单词
+function! Mydict()
+	"执行sdcv命令查询单词的含义,返回的值保存在expl变量中
+	let expl=system('sdcv -n ' . expand("<cword>"))
+	"在每个窗口中执行后面的命令，判断窗口中打开的文件名是否是dict-tmp，如果是，则强制关闭该窗口
+	windo if expand("%")=="dict-tmp" |q!|endif	
+	"纵向分割窗口，宽度为25，新窗口的内容为dict-tmp文件的内容
+	30vsp dict-tmp
+	"设置查询结果窗口的属性，不缓存，不保留交换文件
+	setlocal buftype=nofile bufhidden=hide noswapfile
+	"将expl的内容显示到查询结果窗口
+	1s/^/\=expl/
+	"跳转回文本窗口
+	wincmd p
+endfunction
+"按键绑定，将调用函数并执行
+nmap <leader>f :call Mydict()<CR>
 "--------------------------------------------------------------------------------"
 "设置zen-coding的快捷键
 let g:user_zen_expandabbr_key = '<c-e>'
