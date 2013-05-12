@@ -36,3 +36,10 @@ jeetsukumaran|vim-buffergator|https://github.com/jeetsukumaran/vim-buffergator|�
 tpope|vim-fugitive|https://github.com/tpope/vim-fugitive|git插件
 tpope|vim-eunuch|https://github.com/tpope/vim-eunuch|\*nix shell wrapper
 mattn|zencoding-vim|https://github.com/mattn/zencoding-vim.git|快速生成dhtml片段
+scrooloose|nerdtree|https://github.com/scrooloose/nerdtree|文件系统浏览
+codepiano|TableKnight|https://github.com/codepiano/TableKnight|vim插件，生成表格
+mattn|webapi-vim|https://github.com/mattn/webapi-vim|vim中调用web api
+michaeljsmith|vim-indent-object|https://github.com/michaeljsmith/vim-indent-object|代码块选取
+Lokaltog|vim-powerline|https://github.com/Lokaltog/vim-powerline.git|状态栏增强
+sjl|gundo.vim|https://github.com/sjl/gundo.vim|历史版本
+mileszs|ack.vim|https://github.com/mileszs/ack.vim|perl的ack模块

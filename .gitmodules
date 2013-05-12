@@ -55,3 +55,15 @@
 [submodule ".vim/bundle/TableKnight.git"]
 	path = .vim/bundle/TableKnight.git
 	url = git://github.com/codepiano/TableKnight.git
+[submodule ".vim/bundle/vim-indent-object.git"]
+	path = .vim/bundle/vim-indent-object.git
+	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule ".vim/bundle/vim-powerline.git"]
+	path = .vim/bundle/vim-powerline.git
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule ".vim/bundle/gundo.vim.git"]
+	path = .vim/bundle/gundo.vim.git
+	url = https://github.com/sjl/gundo.vim.git
+[submodule ".vim/bundle/ack.vim.git"]
+	path = .vim/bundle/ack.vim.git
+	url = https://github.com/mileszs/ack.vim.git
