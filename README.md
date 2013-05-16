@@ -43,3 +43,11 @@ michaeljsmith|vim-indent-object|https://github.com/michaeljsmith/vim-indent-obje
 Lokaltog|vim-powerline|https://github.com/Lokaltog/vim-powerline.git|状态栏增强
 sjl|gundo.vim|https://github.com/sjl/gundo.vim|历史版本
 mileszs|ack.vim|https://github.com/mileszs/ack.vim|perl的ack模块
+edsono|vim-matchit|https://github.com/edsono/vim-matchit|扩展%功能
+terryma|vim-multiple-cursors|ttps://github.com/terryma/vim-multiple-cursors|多块选取
+chrisbra|NrrwRgn|https://github.com/chrisbra/NrrwRgn|在新窗口中操作文本块
+tpope|vim-surround|https://github.com/tpope/vim-surround|包裹文本块
+tomtom|tlib_vim|ttps://github.com/tomtom/tlib_vim|函数库
+tpope|vim-unimpaired|https://github.com/tpope/vim-unimpaired|命令扩展
+itspriddle|ZoomWin|https://github.com/itspriddle/ZoomWin|缩放窗口
+honza|vim-snippets|https://github.com/honza/vim-snippets.git|代码模板
