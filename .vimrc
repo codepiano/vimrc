@@ -134,8 +134,6 @@ let g:tagbar_autoshowtag = 0                                      " tag所在菜
 let g:tagbar_systemenc = 'cp936'                                  " 解决编码问题，参见文档
 
 " SuperTab            按键绑定和设置
-let g:SuperTabDefaultCompletionType = 'context'                   " 默认补全方式
-let g:SuperTabContextDefaultCompletionType = '<c-p>'              " 如果context补全方式返回空，使用该补全
 let g:SuperTabRetainCompletionDuration = 'insert'                 " 决定当前补全类型保留时间
 let g:SuperTabNoCompleteBefore = []                               " 在给定规则前不进行补全
 let g:SuperTabNoCompleteAfter = ['^', '\s']                       " 在给定规则后不进行补全
