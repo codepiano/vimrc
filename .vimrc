@@ -272,6 +272,9 @@ let g:user_zen_settings = {
 \  },
 \}
 
+" vim-node            按键绑定和设置
+" tabular             按键绑定和设置
+
 " powerline           按键绑定和设置
 let g:Powerline_symbols = 'fancy'                                 " 启用含有特殊字符的模式
 

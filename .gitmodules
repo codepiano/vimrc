@@ -91,3 +91,15 @@
 [submodule ".vim/bundle/slimv.git"]
 	path = .vim/bundle/slimv.git
 	url = https://github.com/vim-scripts/slimv.vim.git
+[submodule ".vim/bundle/NrrwRgn.git"]
+	path = .vim/bundle/NrrwRgn.git
+	url = git@github.com:chrisbra/NrrwRgn.git
+[submodule ".vim/bundle/vim-node.git"]
+	path = .vim/bundle/vim-node.git
+	url = git@github.com:moll/vim-node.git
+[submodule ".vim/bundle/tabular.git"]
+	path = .vim/bundle/tabular.git
+	url = git@github.com:godlygeek/tabular.git
+[submodule ".vim/bundle/vim-javascript-syntax.git"]
+	path = .vim/bundle/vim-javascript-syntax.git
+	url = git@github.com:jelera/vim-javascript-syntax.git
