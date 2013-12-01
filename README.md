@@ -4,7 +4,12 @@
 vimrc
 -----
 
-自用的vimrc，主要在windows下使用，未整理
+自用的vimrc，主要在mac和linux下使用，未整理
+
+插件全部使用git submodule的方式添加，clone之后需要执行
+
+  git submodule init
+  git submodule update
 
 参考了几位大牛的vimrc
 
