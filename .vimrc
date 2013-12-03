@@ -9,7 +9,6 @@ syntax on                    " 开启文件类型侦测
 filetype indent on           " 针对不同的文件类型采用不同的缩进格式
 filetype plugin on           " 针对不同的文件类型加载对应的插件
 filetype plugin indent on    " 启用自动补全
-colorscheme solarized        " 着色模式
 
 " 解决菜单乱码
 source $VIMRUNTIME/delmenu.vim
@@ -23,8 +22,8 @@ language messages zh_CN.utf-8
 " autocmd! InsertEnter *	set noimdisable
 
 "------------------------------------------------ 自定义设置
-set background=dark
-set guifont=Monaco\ for\ powerline\ 11                             " 字体设置
+set background=light
+set guifont=Monaco\ for\ Powerline\ 12                             " 字体设置
 set laststatus=2                                                   " 最后一个窗口时总是有状态行
 set t_Co=256                                                       " 颜色数目设置
 set fileformats=unix,dos                                           " 文件格式
@@ -70,14 +69,12 @@ let g:mapleader = ';'
 
 " 快速编辑vimrc
 " 快速编辑<leader>e 重新装入<leader>s
-if has(" win32" )
+if has("win32")
   map <leader>e :e! $VIM/_vimrc<cr>
   map <leader>s :source $VIM/_vimrc<cr>
-  autocmd! bufwritepost vimrc source /$VIM/_vimrc
-elseif has(" unix" )
+elseif has("unix")
   map <leader>e :e! $HOME/.vimrc<cr>
   map <leader>s :source $HOME/.vimrc<cr>
-  autocmd! bufwritepost vimrc source ~/.vimrc
 endif
 
 " 插入模式下在行尾补分号
@@ -321,3 +318,4 @@ endfunction
 let g:html_no_foldcolumn = 1
 " 使用该脚本产生 XHTML (XML 兼容的 HTML)
 let g:html_use_xhtml = 1
+colorscheme solarized        " 着色模式
