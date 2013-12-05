@@ -296,7 +296,7 @@ function! Mydict()
 	" 执行sdcv命令查询单词的含义,返回的值保存在expl变量中
 	let expl=system('sdcv -n ' . expand('<cword>' ))
 	" 在每个窗口中执行后面的命令，判断窗口中打开的文件名是否是dict-tmp，如果是，则强制关闭该窗口
-	windo if expand(" %" )==" dict-tmp" |q!|endif	
+	windo if expand("%" )=="dict-tmp" |q!|endif	
 	" 纵向分割窗口，宽度为25，新窗口的内容为dict-tmp文件的内容
 	30vsp dict-tmp
 	" 设置查询结果窗口的属性，不缓存，不保留交换文件
