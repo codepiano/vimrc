@@ -23,6 +23,7 @@ language messages zh_CN.utf-8
 
 "------------------------------------------------ 自定义设置
 set background=light
+set directory=~/.vim_swp_tmp                                       " 修改vim生成的swp文件的位置
 set guifont=Monaco\ for\ Powerline\ 12                             " 字体设置
 set laststatus=2                                                   " 最后一个窗口时总是有状态行
 set t_Co=256                                                       " 颜色数目设置
@@ -31,11 +32,11 @@ set nocompatible                                                   " 禁止模�
 set fenc=utf-8                                                     " 设置编码
 set encoding=utf-8                                                 " 设置编码
 set backspace=2                                                    " 设置退格键可用
-set tabstop=2                                                      " 设置tab键的宽度
+set tabstop=4                                                      " 设置tab键的宽度
 set expandtab                                                      " tab替换为4个空格
-set shiftwidth=2                                                   " 换行时行间交错使用4个空格
+set shiftwidth=4                                                   " 换行时行间交错使用4个空格
 set autoindent                                                     " 自动对齐
-set cindent shiftwidth=2                                           " 自动缩进4空格
+set cindent shiftwidth=4                                           " 自动缩进4空格
 set smartindent                                                    " 智能自动缩进
 set ai!                                                            " 设置自动缩进
 set nu!                                                            " 显示行号
