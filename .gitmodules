@@ -103,3 +103,6 @@
 [submodule ".vim/bundle/emmet-vim"]
 	path = .vim/bundle/emmet-vim
 	url = git@github.com:mattn/emmet-vim.git
+[submodule ".vim/bundle/Align.git"]
+	path = .vim/bundle/Align.git
+	url = git@github.com:vim-scripts/Align.git
