@@ -100,6 +100,9 @@ nmap <tab> <C-W>w
 " 调用函数查询当前光标下的单词
 nmap <leader>f :call Mydict()<CR>
 
+" 添加对0寄存器的快捷粘贴
+noremap <leader>p "0p
+
 " 对HTML字符进行转义，转义的字符可以在函数HtmlEscape中定义
 vnoremap <Leader>h :call HtmlEscape()<CR>
 " 转义行内的< >符号，支持range
