@@ -115,3 +115,9 @@
 [submodule ".vim/bundle/funcoo.vim"]
 	path = .vim/bundle/funcoo.vim
 	url = https://github.com/rizzatti/funcoo.vim.git
+[submodule ".vim/bundle/vim-coffee-script.git"]
+	path = .vim/bundle/vim-coffee-script.git
+	url = git@github.com:kchmck/vim-coffee-script.git
+[submodule ".vim/bundle/syntastic.git"]
+	path = .vim/bundle/syntastic.git
+	url = git@github.com:scrooloose/syntastic.git
