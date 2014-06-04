@@ -124,3 +124,6 @@
 [submodule ".vim/bundle/coffeelint.git"]
 	path = .vim/bundle/coffeelint.git
 	url = git@github.com:clutchski/coffeelint.git
+[submodule ".vim/bundle/vim-swift.git"]
+	path = .vim/bundle/vim-swift.git
+	url = git@github.com:toyamarinyon/vim-swift.git
