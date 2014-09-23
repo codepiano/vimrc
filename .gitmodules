@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/vim-easymotion.git"]
 	path = .vim/bundle/vim-easymotion.git
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule ".vim/bundle/ctrlp.git"]
-	path = .vim/bundle/ctrlp.git
-	url = https://github.com/kien/ctrlp.vim.git
 [submodule ".vim/bundle/vim-buffergator.git"]
 	path = .vim/bundle/vim-buffergator.git
 	url = https://github.com/jeetsukumaran/vim-buffergator.git
@@ -127,3 +124,6 @@
 [submodule ".vim/bundle/vim-swift.git"]
 	path = .vim/bundle/vim-swift.git
 	url = git@github.com:toyamarinyon/vim-swift.git
+[submodule ".vim/bundle/ctrlp.vim.git"]
+	path = .vim/bundle/ctrlp.vim.git
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
