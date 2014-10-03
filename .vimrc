@@ -134,16 +134,30 @@ let g:tagbar_iconchars = ['▶', '▼']                               " Linux an
 let g:tagbar_autoshowtag = 0                                      " tag所在菜单被折叠时的行为，参见文档
 let g:tagbar_systemenc = 'cp936'                                  " 解决编码问题，参见文档
 
-" SuperTab            按键绑定和设置
-let g:SuperTabRetainCompletionDuration = 'insert'                 " 决定当前补全类型保留时间
-let g:SuperTabNoCompleteBefore = []                               " 在给定规则前不进行补全
-let g:SuperTabNoCompleteAfter = ['^', '\s']                       " 在给定规则后不进行补全
-let g:SuperTabMappingForward  = '<tab>'                           " 向前的按键绑定
-let g:SuperTabMappingBackward = '<s-tab>'                         " 向后的按键绑定
-let g:SuperTabMappingTabLiteral = '<c-tab>'                       " 插入tab符
-let g:SuperTabLongestEnhanced = 0                                 " 最长匹配增强                     
-let g:SuperTabLongestHighlight = 0                                " 高亮最长匹配，可以直接使用回车选择
-let g:SuperTabCrMapping = 1                                       " 使用<cr>结束补全
+" closetag            关闭标签
+let g:closetag_html_style=1 
+
+" rainbow_parentheses 彩虹括号
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
 
 " Nerd_commenter      按键绑定和设置
 let g:NERDAllowAnyVisualDelims = 1                                " 允许在可视/可视行模式使用多块注释符

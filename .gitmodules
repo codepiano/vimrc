@@ -124,3 +124,21 @@
 [submodule ".vim/bundle/ctrlp.vim.git"]
 	path = .vim/bundle/ctrlp.vim.git
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule ".vim/bundle/YouCompleteMe.git"]
+	path = .vim/bundle/YouCompleteMe.git
+	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/delimitMate.git"]
+	path = .vim/bundle/delimitMate.git
+	url = git@github.com:Raimondi/delimitMate.git
+[submodule ".vim/bundle/vim-repeat.git"]
+	path = .vim/bundle/vim-repeat.git
+	url = git@github.com:tpope/vim-repeat.git
+[submodule ".vim/bundle/vim-trailing-whitespace.git"]
+	path = .vim/bundle/vim-trailing-whitespace.git
+	url = git@github.com:bronson/vim-trailing-whitespace.git
+[submodule ".vim/bundle/vim-expand-region.git"]
+	path = .vim/bundle/vim-expand-region.git
+	url = git@github.com:terryma/vim-expand-region.git
+[submodule ".vim/bundle/rainbow_parentheses.vim.git"]
+	path = .vim/bundle/rainbow_parentheses.vim.git
+	url = git@github.com:kien/rainbow_parentheses.vim.git
