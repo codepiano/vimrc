@@ -1,8 +1,57 @@
 "------------------------------------------------ 文件类型侦测和语法高亮
-" 加载pathogen插件
-" 非.vim目录的加载方法请参考pathogen的github readme
-runtime bundle/vim-pathogen.git/autoload/pathogen.vim
-execute pathogen#infect()
+" 加载Vundle插件
+set nocompatible                                                   " 禁止模仿vi
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-scripts/Align'
+Plugin 'chrisbra/NrrwRgn'
+Plugin 'codepiano/TableKnight'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'itspriddle/ZoomWin'
+Plugin 'mileszs/ack.vim'
+Plugin 'iyf/AuthorInfo'
+Plugin 'clutchski/coffeelint'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mattn/emmet-vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'vim-scripts/slimv.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'tomtom/tlib_vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ap/vim-css-color'
+Plugin 'tpope/vim-dispatch'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-eunuch'
+Plugin 'terryma/vim-expand-region'
+Plugin 'tpope/vim-fugitive'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'groenewege/vim-less'
+Plugin 'edsono/vim-matchit'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'moll/vim-node'
+Plugin 'tpope/vim-pathogen'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'toyamarinyon/vim-swift'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'tpope/vim-unimpaired'
+
+call vundle#end()
 
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
